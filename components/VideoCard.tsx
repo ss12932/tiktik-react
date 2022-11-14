@@ -1,6 +1,11 @@
 import React from 'react';
+import { Video } from '../types.d';
+import { NextPage } from 'next';
 
-const VideoCard = () => {
+interface IProps {
+  post: Video;
+}
+const VideoCard: NextPage<IProps> = ({ post }) => {
   return <div>VideoCard</div>;
 };
 
