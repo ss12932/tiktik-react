@@ -8,6 +8,9 @@ import { BiSearch } from 'react-icons/bi';
 import { IoMdAdd } from 'react-icons/io';
 
 import Logo from '../utils/tiktik-logo.png';
+import { createOrGetUser } from '../utils';
+
+import useAuthStore from '../store/authStore';
 
 const Navbar = () => {
   const user = false;
@@ -24,7 +27,16 @@ const Navbar = () => {
         </div>
       </Link>
       <div>SEARCH</div>
-      <div>{user ? <div>Loggede In</div> : <GoogleLogin />}</div>
+      <div>
+        {user ? (
+          <div>Logged In</div>
+        ) : (
+          <GoogleLogin
+            onSuccess={(response) => createOrGetUser(response)}
+            onError={() => console.log('error')}
+          />
+        )}
+      </div>
     </div>
   );
 };
