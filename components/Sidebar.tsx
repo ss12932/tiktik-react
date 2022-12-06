@@ -11,7 +11,6 @@ import Footer from './Footer';
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(true);
-
   const userProfile = false;
 
   const normalLink =
